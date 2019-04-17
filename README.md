@@ -1,4 +1,4 @@
-# vertx-codegen 和 lombok 一起使用简化 DataObject 代码
+# vertx-codegen lombok 共用
 
 1. 添加lombok依赖
 ```xml
