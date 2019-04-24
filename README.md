@@ -20,8 +20,8 @@
                 <configuration>
                     <annotationProcessors>
                         <!-- lombok在前， 否则会出错 -->
-                        <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor</annotationProcessor>
-                        <annotationProcessor>io.vertx.codegen.CodeGenProcessor</annotationProcessor>
+
+                      <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor,io.vertx.codegen.CodeGenProcessor</annotationProcessor>
                     </annotationProcessors>
                     <generatedSourcesDirectory>${project.build.directory}/generated-sources/annotations</generatedSourcesDirectory>
                 </configuration>
