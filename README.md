@@ -32,39 +32,34 @@
 
 3. 示例
 ```xml
-@DataObject
 @Data
 @NoArgsConstructor
-public class Network implements Serializable {
+@DataObject(generateConverter = true)
+public class CellTower implements Serializable {
 
-    private static final long serialVersionUID = 6463361247973962010L;
+    private static final long serialVersionUID = 1758268454928348674L;
 
-    public Network(CellTower cellTower) {
-        cellTowers.add(cellTower);
-    }
+    private String radioType;
 
-    public Network(JsonObject jsonObj) {
-        JsonUtils.fromJson(jsonObj, this);
-    }
+    private Long cellId;
 
-    public JsonObject toJson() {
-        return JsonUtils.toJson(this);
-    }
+    private Integer locationAreaCode;
 
-    // 属性
     private Integer mobileCountryCode;
 
     private Integer mobileNetworkCode;
 
-    private String radioType = "gsm";
+    private Integer signalStrength;
 
-    private String carrier;
+    public CellTower(JsonObject jsonObj) {
+        CellTowerConverter.fromJson(jsonObj, this);
+    }
 
-    private Boolean considerIp = false;
-
-    private List<CellTower> cellTowers = new ArrayList<>();
-
-    private List<WifiAccessPoint> wifiAccessPoints = new ArrayList<>();
+    public JsonObject toJson() {
+        JsonObject jsonObj = new JsonObject();
+        CellTowerConverter.toJson(this, jsonObj);
+        return jsonObj;
+    }
 }
 ```
 
